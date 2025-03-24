@@ -30,10 +30,9 @@ public class JdbcTemplateRepository implements TodoRepository{
         parameters.put("name", todoList.getName());
         parameters.put("contents", todoList.getContents());
         parameters.put("password", todoList.getPassword());
-        parameters.put("date", todoList.getDate());
 
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 
-        return new TodoListResponseDto(key.longValue(), todoList.getName(), todoList.getContents(), todoList.getDate());
+        return new TodoListResponseDto(key.longValue(), todoList.getName(), todoList.getContents());
     }
 }

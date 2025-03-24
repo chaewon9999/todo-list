@@ -4,6 +4,8 @@ import com.example.todolist.dto.TodoListRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @AllArgsConstructor
 public class TodoList {
@@ -12,12 +14,12 @@ public class TodoList {
     private String name;
     private String contents;
     private String password;
-    private String date;
+    private LocalDateTime date;
 
     public TodoList(TodoListRequestDto dto) {
         this.name = dto.getName();
         this.contents = dto.getContents();
         this.password = dto.getPassword();
-        this.date = dto.getDate();
+        this.date = LocalDateTime.now();
     }
 }
