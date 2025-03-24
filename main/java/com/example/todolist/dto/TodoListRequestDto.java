@@ -3,11 +3,10 @@ package com.example.todolist.dto;
 import lombok.Getter;
 
 @Getter
-public class TodoRequestDto {
+public class TodoListRequestDto {
 
     private String name;
-    private String contents;
     private String password;
+    private String contents;
     private String date;
-
 }
