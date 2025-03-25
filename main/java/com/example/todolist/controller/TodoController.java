@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("{todoLists}")
+@RequestMapping("/todoLists")
 public class TodoController {
 
     private final TodoService todoService;
@@ -17,26 +19,36 @@ public class TodoController {
         this.todoService = todoService;
     }
 
+    // 1. 할일 생성
     @PostMapping
     public ResponseEntity<TodoListResponseDto> createTodoList(@RequestBody TodoListRequestDto dto) {
         return new ResponseEntity<>(todoService.saveTodoList(dto), HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
-    public void getTodoListById() {
-
+    // 2. 할일 단건 조회
+    @GetMapping("/{id}")
+    public ResponseEntity<List<TodoListResponseDto>> findTodoListById(@PathVariable Long id) {
+        return new ResponseEntity<>(todoService.findTodoListById(id), HttpStatus.OK);
     }
 
+    // 3. 할일 목록 조회
     @GetMapping
-    public void getTodoList() {
-
+    public ResponseEntity<List<TodoListResponseDto>> findAllTodoList() {
+        return new ResponseEntity<>(todoService.findAllTodoList(), HttpStatus.OK);
     }
 
-    @PutMapping
-    public void updateTodoList() {
-
+    // 4. 할일 수정
+    @PutMapping("/{id}")
+    public ResponseEntity<List<TodoListResponseDto>> updateTodoList
+    (   @PathVariable Long id,
+        @RequestParam String password,
+        @RequestBody TodoListRequestDto dto
+    )
+    {
+        return new ResponseEntity<>(todoService.updateTodoList(id, password, dto), HttpStatus.OK);
     }
 
+    // 5. 헐알 삭제
     @DeleteMapping
     public void deleteTodoList() {
 

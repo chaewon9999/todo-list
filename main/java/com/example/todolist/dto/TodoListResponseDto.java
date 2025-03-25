@@ -2,20 +2,18 @@ package com.example.todolist.dto;
 
 import lombok.Getter;
 
-import java.time.LocalDateTime;
-
 @Getter
 public class TodoListResponseDto {
 
-    private long id;
+    private Long id;
     private String name;
     private String contents;
-    private LocalDateTime date;
+    private String date;
 
-    public TodoListResponseDto(long id, String name, String contents) {
+    public TodoListResponseDto(Long id, String name, String contents, String date) {
         this.id = id;
         this.name = name;
         this.contents = contents;
-        this.date = LocalDateTime.now();
+        this.date = date;
     }
 }
