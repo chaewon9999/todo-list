@@ -1,7 +1,6 @@
 package com.example.todolist.entity;
 
 import com.example.todolist.dto.TodoListRequestDto;
-import com.example.todolist.dto.TodoListResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -22,7 +21,7 @@ public class TodoList {
         this.name = dto.getName();
         this.contents = dto.getContents();
         this.password = dto.getPassword();
-        this.date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")); //데이터베이스에 현재시간 저장
     }
 
 }

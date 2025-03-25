@@ -5,7 +5,9 @@ import com.example.todolist.dto.TodoListResponseDto;
 import com.example.todolist.entity.TodoList;
 import com.example.todolist.repository.JdbcTemplateRepository;
 import com.example.todolist.repository.TodoRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -38,6 +40,10 @@ public class TodoServiceImpl implements TodoService{
     public List<TodoListResponseDto> updateTodoList(Long id, String password, TodoListRequestDto dto) {
 
         int updateRow = todoRepository.updateTodoList(id, dto.getName(), password, dto.getContents());
+
+        if (updateRow == 0) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "아이디나 비밀번호가 잘못되었습니다."); //수정 실패시 예외처리
+        }
 
          return todoRepository.findTodoListById(id);
     }

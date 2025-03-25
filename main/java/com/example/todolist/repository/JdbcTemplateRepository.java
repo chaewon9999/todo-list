@@ -20,10 +20,16 @@ public class JdbcTemplateRepository implements TodoRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
+    /**
+     * jdbcTemplate을 통해 쿼리문 직접 사용
+     */
     public JdbcTemplateRepository(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * jdbcInsert를 통해 데이터베이스에 저장
+     */
     @Override
     public TodoListResponseDto saveTodoList(TodoList todoList) {
         SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
@@ -53,7 +59,6 @@ public class JdbcTemplateRepository implements TodoRepository{
 
     @Override
     public int updateTodoList(Long id, String name, String password,  String contents) {
-
         return jdbcTemplate.update("update todoList set name = ?, contents = ? where id = ? and password = ?", name, contents, id, password);
     }
 
@@ -62,6 +67,9 @@ public class JdbcTemplateRepository implements TodoRepository{
         jdbcTemplate.update("delete from todoList where id = ? and password = ?", id, password);
     }
 
+    /**
+     * RowMapper를 통해 쿼리 결과 리스트로 받기
+     */
     private RowMapper<TodoListResponseDto> rowMapper() {
 
         return new RowMapper<TodoListResponseDto>() {
