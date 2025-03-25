@@ -57,6 +57,11 @@ public class JdbcTemplateRepository implements TodoRepository{
         return jdbcTemplate.update("update todoList set name = ?, contents = ? where id = ? and password = ?", name, contents, id, password);
     }
 
+    @Override
+    public void deleteTodoList(Long id, String password) {
+        jdbcTemplate.update("delete from todoList where id = ? and password = ?", id, password);
+    }
+
     private RowMapper<TodoListResponseDto> rowMapper() {
 
         return new RowMapper<TodoListResponseDto>() {

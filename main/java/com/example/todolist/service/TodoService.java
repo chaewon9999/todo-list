@@ -14,4 +14,6 @@ public interface TodoService {
     public List<TodoListResponseDto> findAllTodoList();
 
     public List<TodoListResponseDto> updateTodoList(Long id, String password, TodoListRequestDto dto);
+
+    public void deleteTodoList(Long id, String password);
 }

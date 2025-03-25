@@ -49,8 +49,8 @@ public class TodoController {
     }
 
     // 5. 헐알 삭제
-    @DeleteMapping
-    public void deleteTodoList() {
-
+    @DeleteMapping("/{id}")
+    public void deleteTodoList(@PathVariable Long id, @RequestParam String password) {
+        todoService.deleteTodoList(id, password);
     }
 }

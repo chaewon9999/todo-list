@@ -42,4 +42,9 @@ public class TodoServiceImpl implements TodoService{
          return todoRepository.findTodoListById(id);
     }
 
+    @Override
+    public void deleteTodoList(Long id, String password) {
+        todoRepository.deleteTodoList(id, password);
+    }
+
 }

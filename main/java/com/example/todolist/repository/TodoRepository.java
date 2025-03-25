@@ -14,4 +14,6 @@ public interface TodoRepository {
     public List<TodoListResponseDto> findAllTodoList();
 
     public int updateTodoList(Long id, String name, String password, String contents);
+
+    public void deleteTodoList(Long id, String password);
 }
