@@ -1,16 +1,16 @@
-<h1>일정관리 앱 만들기</h1>
+# 📌 일정관리 앱 만들기 (TodoList)
 
-개발환경
+## 🚀 프로젝트 소개 (Introduction)
+- ✅ **일정 생성**: (`POST /api/todoLists`)
+- ✅ **일정 조회**: (`Get /api/todoLists/{id}`)
+- ✅ **일정 수정**: (`PUT /api/todoLists/{id}?password=비밀번호`)
+- ✅ **일정 삭제**: (`DELETE /api/todoLists/{id}?password=비밀번호`)
 
-Java 17 
+📌 **개발 환경**  
+- 🛠 **백엔드**: Java 17, Spring Boot  
+- 🗄 **데이터베이스**: MySQL
 
-IDE : intelliJ IDEA
-
-Framework : springboot
-
-Database : MySQL
-
-<h2>API 명세서, ERD, SQL</h2>
+- <h2>API 명세서, ERD, SQL</h2>
 API 명세서
 
 https://www.notion.so/1c02e791318280f69ee3fb62d06a55e6?v=1c02e791318280448aad000c6a842b8a
@@ -25,4 +25,4 @@ SQL
 
 주요 기능 및 트러블슈팅
 
-https://velog.io/@w0729/%EC%9D%BC%EC%A0%95%EA%B4%80%EB%A6%AC-%EC%95%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0
+[개발과정 벨로그](https://velog.io/@w0729/%EC%9D%BC%EC%A0%95%EA%B4%80%EB%A6%AC-%EC%95%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0)
